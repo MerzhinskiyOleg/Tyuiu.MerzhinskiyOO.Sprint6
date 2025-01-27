@@ -7,18 +7,26 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
         public int[,] Calculate(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
-            int[] fourthColumn = new int[rows];
+            int cols = matrix.GetLength(1);
 
+            var array = new int[rows][];
             for (int i = 0; i < rows; i++)
             {
-                fourthColumn[i] = matrix[i, 3];
+                array[i] = new int[cols];
+                for (int j = 0; j < cols; j++)
+                {
+                    array[i][j] = matrix[i, j];
+                }
             }
 
-            Array.Sort(fourthColumn);
+            array = array.OrderBy(row => row[0]).ToArray();
 
             for (int i = 0; i < rows; i++)
             {
-                matrix[i, 3] = fourthColumn[i];
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = array[i][j];
+                }
             }
 
             return matrix;
