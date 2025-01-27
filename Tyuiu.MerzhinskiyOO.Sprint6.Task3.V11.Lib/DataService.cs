@@ -9,17 +9,18 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
 
-            var array = new int[rows][];
+            var array = new List<int[]>();
             for (int i = 0; i < rows; i++)
             {
-                array[i] = new int[cols];
+                var row = new int[cols];
                 for (int j = 0; j < cols; j++)
                 {
-                    array[i][j] = matrix[i, j];
+                    row[j] = matrix[i, j];
                 }
+                array.Add(row);
             }
 
-            array = array.OrderBy(row => row[0]).ToArray();
+            array = array.OrderBy(row => row[0]).ToList();
 
             for (int i = 0; i < rows; i++)
             {
@@ -31,5 +32,6 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
 
             return matrix;
         }
+
     }
 }
