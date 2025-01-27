@@ -29,13 +29,14 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task7.V1.Lib
 
             for (int r = 0; r < rows; r++)
             {
-                if (aValues[r, 8] < -10 || aValues[r, 8] > 10)
+                if (aValues[r, 1] < 0)
                 {
-                    aValues[r, 8] = 0;
+                    aValues[r, 1] = 1;
                 }
             }
 
             return aValues;
         }
+
     }
 }
