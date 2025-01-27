@@ -31,6 +31,5 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task7.V1.Lib
 
             return result;
         }
-
     }
 }
