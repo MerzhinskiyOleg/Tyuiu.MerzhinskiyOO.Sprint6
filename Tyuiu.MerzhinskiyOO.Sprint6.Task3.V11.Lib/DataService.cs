@@ -8,7 +8,8 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            int[][] array = new int[rows][];
+
+            var array = new int[rows][];
             for (int i = 0; i < rows; i++)
             {
                 array[i] = new int[cols];
@@ -17,6 +18,7 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
                     array[i][j] = matrix[i, j];
                 }
             }
+
             array = array.OrderBy(row => row[0]).ToArray();
 
             for (int i = 0; i < rows; i++)
@@ -29,6 +31,5 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
 
             return matrix;
         }
-
     }
 }
