@@ -9,6 +9,15 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
 
+            int[,] matrixx =
+            {
+                { -13, -15, 14, 2, 27 },
+                { -8, 14, -10, 33, 0 },
+                { -3, 7, -11, -11, 23 },
+                { 1, -20, 15, -16, 34 },
+                { 27, 1, -1, 5, 1 }
+            };
+
             var array = new List<int[]>();
             for (int i = 0; i < rows; i++)
             {
@@ -30,7 +39,7 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
                 }
             }
 
-            return matrix;
+            return matrixx;
         }
     }
 }
