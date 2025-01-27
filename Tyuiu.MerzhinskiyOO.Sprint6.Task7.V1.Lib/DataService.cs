@@ -6,30 +6,36 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task7.V1.Lib
     {
         public int[,] GetMatrix(string path)
         {
-            string[] lines = File.ReadAllLines(path);
-            int rows = lines.Length;
-            int columns = lines[0].Split(',').Length;
+            int rows;
+            int colums;
+            string fileData = File.ReadAllText(path);
 
-            int[,] result = new int[rows, columns];
+            fileData = fileData.Replace("\n", "\r");
+            string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < rows; i++)
+            rows = lines.Length;
+            colums = lines[0].Split(';').Length;
+
+            int[,] aValues = new int[rows, colums];
+
+            for (int r = 0; r < rows; r++)
             {
-                string[] values = lines[i].Split(',', StringSplitOptions.RemoveEmptyEntries);
-                for (int j = 0; j < columns; j++)
+                string[] lines_r = lines[r].Split(';');
+                for (int c = 0; c < colums; c++)
                 {
-                    result[i, j] = int.Parse(values[j]);
+                    aValues[r, c] = Convert.ToInt32(lines_r[c]);
                 }
             }
 
-            for (int i = 0; i < rows; i++)
+            for (int r = 0; r < rows; r++)
             {
-                if (result[i, 1] < 0)
+                if (aValues[r, 8] != 10)
                 {
-                    result[i, 1] = 1;
+                    aValues[r, 8] = 0;
                 }
             }
 
-            return result;
+            return aValues;
         }
     }
 }
