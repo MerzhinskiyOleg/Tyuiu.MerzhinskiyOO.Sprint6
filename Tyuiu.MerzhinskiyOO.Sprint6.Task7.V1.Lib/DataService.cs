@@ -7,29 +7,29 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task7.V1.Lib
         public int[,] GetMatrix(string path)
         {
             int rows;
-            int colums;
-            string fileData = File.ReadAllText(path);
+            int cols;
 
+            string fileData = File.ReadAllText(path);
             fileData = fileData.Replace("\n", "\r");
             string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
             rows = lines.Length;
-            colums = lines[0].Split(';').Length;
+            cols = lines[0].Split(';').Length;
 
-            int[,] aValues = new int[rows, colums];
+            int[,] aValues = new int[rows, cols];
 
             for (int r = 0; r < rows; r++)
             {
-                string[] lines_r = lines[r].Split(';');
-                for (int c = 0; c < colums; c++)
+                string[] lineData = lines[r].Split(';');
+                for (int c = 0; c < cols; c++)
                 {
-                    aValues[r, c] = Convert.ToInt32(lines_r[c]);
+                    aValues[r, c] = Convert.ToInt32(lineData[c]);
                 }
             }
 
             for (int r = 0; r < rows; r++)
             {
-                if (aValues[r, 8] != 10)
+                if (aValues[r, 8] < -10 || aValues[r, 8] > 10)
                 {
                     aValues[r, 8] = 0;
                 }
