@@ -6,8 +6,22 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
     {
         public int[,] Calculate(int[,] matrix)
         {
+            int rows = matrix.GetLength(0);
+            int[] fourthColumn = new int[rows];
 
-            return 3423423;
+            for (int i = 0; i < rows; i++)
+            {
+                fourthColumn[i] = matrix[i, 3];
+            }
+
+            Array.Sort(fourthColumn);
+
+            for (int i = 0; i < rows; i++)
+            {
+                matrix[i, 3] = fourthColumn[i];
+            }
+
+            return matrix;
         }
     }
 }
