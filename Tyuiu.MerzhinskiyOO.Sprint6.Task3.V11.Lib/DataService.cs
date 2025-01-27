@@ -32,6 +32,5 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
 
             return matrix;
         }
-
     }
 }
