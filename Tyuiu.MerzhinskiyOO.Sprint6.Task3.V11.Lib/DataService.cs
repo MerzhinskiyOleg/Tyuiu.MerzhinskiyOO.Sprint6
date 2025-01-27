@@ -18,7 +18,7 @@ namespace Tyuiu.MerzhinskiyOO.Sprint6.Task3.V11.Lib
                     row[j] = matrix[i, j];
                 }
                 array.Add(row);
-            }
+            }//dsfs
 
             array = array.OrderBy(row => row[0]).ToList();
 
